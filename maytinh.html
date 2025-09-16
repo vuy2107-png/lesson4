@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính</title>
+</head>
+<body>
+<div style="display: inline-block; margin-right: 10px;">
+    <input type="number" id="number1" placeholder="number 1">
+</div>
+<div style="display: inline-block; margin-right: 10px;">
+    <input type="number" id="number2" placeholder="number 2">
+</div>
+<br><br>
+<button onclick="calculate('+')">Addition(+)</button>
+<button onclick="calculate('-')">Subtraction(-)</button>
+<button onclick="calculate('*')">Multiplication(*)</button>
+<button onclick="calculate('/')">Division(/)</button>
+<p id="result"></p>
+<script>
+    function calculate(operator) {
+        let number1 = parseFloat(document.getElementById("number1").value);
+        let number2 = parseFloat(document.getElementById("number2").value);
+        let result;
+        if (isNaN(number1) || isNaN(number2)) {
+            document.getElementById('result').innerText = 'Vui lòng nhập đủ 2 số'
+            result;
+        }
+        switch (operator) {
+            case '+':
+                result = number1 + number2;
+                document.getElementById('result').innerText = "Result Addition: " + result;
+                break;
+            case '-':
+                result = number1 - number2;
+                document.getElementById('result').innerText = "Result Subtraction: " + result;
+                break;
+            case '*':
+                result = number1 * number2;
+                document.getElementById('result').innerText = "Result Multiplication: " + result;
+                break;
+            case '/':
+                if (number2 === 0){
+                    document.getElementById('result').innerText = "Không thể chia hết cho 0";
+                }else {
+                    result = number1 / number2;
+                    document.getElementById('result').innerText = "Result Division: " + result;
+                }
+                break;
+        }
+    }
+</script>
+</body>
+</html>
