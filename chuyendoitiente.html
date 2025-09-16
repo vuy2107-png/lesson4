@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+<div style="display: inline-block; margin-right: 10px;">
+Amount:<br>
+<input type="number" id="amount" value="1">
+</div>
+<div style="display: inline-block; margin-right: 10px;">
+From Currency:<br>
+<select id="from">
+    <option value="USD">USD</option>
+    <option value="VND">Vietnam</option>
+</select>
+</div>
+<div style="display: inline-block; margin-right: 10px;">
+To Currency:<br>
+<select id="to">
+    <option value="VND">Vietnam</option>
+    <option value="USD">USD</option>
+</select>
+</div>
+<button onclick="convert()">convert</button>
+<p id="result"></p>
+<script>
+    function convert() {
+        let amount = parseFloat(document.getElementById("amount").value);
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        let rate = {
+            "USD": { "VND": 1/26375,"USD": 1 },
+            "VND": { "USD": 26375, "VND": 1 }
+        }
+        if (from === to) {
+            document.getElementById("result").innerText = "Result: " + amount + " " + to;
+        } else {
+            let converted = amount * rate[from][to];
+            document.getElementById("result").innerText = "Result: " + converted.toFixed(11) + " " + to;
+        }
+    };
+</script>
+</body>
+</html>
