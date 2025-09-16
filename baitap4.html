@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuvihinhtron</title>
+</head>
+<body>
+<input type="number" id="bankinh" placeholder="Nhập bán kính(r)">
+<button onclick="tinhChuVi()">Nhập</button>
+<p id="result"></p>
+</body>
+<script>
+    function tinhChuVi() {
+        let r = document.getElementById("bankinh").value;
+        r = parseInt(r);
+        if (isNaN(r)||r<=0) {
+            document.getElementById("Vui lòng nhập lại giá trị");
+            return;
+        }
+        let c = 2*Math.PI*r;
+        document.getElementById("result").innerText = 'Chu vi hình tròn có bán kính ' + r + ' là ' + c.toFixed(4);
+    }
+</script>
+</html>

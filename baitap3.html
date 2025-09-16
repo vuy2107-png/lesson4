@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diện tích hình tròn</title>
+</head>
+<body>
+<input type="number" id="bankinh" placeholder="Nhập bán kính(r)">
+<button onclick="tinhDienTich()">Tính</button>
+<p id="result"></p>
+<script>
+    function tinhDienTich() {
+        let r = document.getElementById("bankinh").value;
+        r = parseFloat(r);
+        if (isNaN(r) || r <= 0) {
+            document.getElementById("result").innerText = "Vui lòng nhập bán kính hợp lệ!";
+            return;
+        }
+        let s = Math.PI * r * r;
+        document.getElementById("result").innerText = "Diện tích hình tròn có bán kính " + r + " là " + s.toFixed(2);
+    }
+</script>
+</body>
+</html>
