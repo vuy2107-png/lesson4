@@ -31,8 +31,8 @@ To Currency:<br>
         let from = document.getElementById("from").value;
         let to = document.getElementById("to").value;
         let rate = {
-            "USD": { "VND": 1/26375,"USD": 1 },
-            "VND": { "USD": 26375, "VND": 1 }
+            "VND": { "USD": 1/26375,"VND": 1 },
+            "USD": { "VND": 26375, "USD": 1 }
         }
         if (from === to) {
             document.getElementById("result").innerText = "Result: " + amount + " " + to;
